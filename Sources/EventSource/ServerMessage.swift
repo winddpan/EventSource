@@ -53,6 +53,9 @@ public struct ServerMessage {
         
         for row in rows {
             let keyValue = row.split(separator: MessageParser.semicolon, maxSplits: 1)
+            if keyValue.count < 2 {
+                continue
+            }
             let key = keyValue[0].utf8String
             let value = keyValue[1].utf8String
             
